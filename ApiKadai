@@ -1,39 +1,39 @@
-  1 import './App.css'
-  2 import React, { useState } from 'react'
-  3 const API = 'b966db4b4f61a822e4c6fbeffa936dc8'
-  4 export default function App () {
-  5   const [city, setCity] = useState('')
-  6   const [result, setResult] = useState({})
-  7   const getWeather = async e => {
-  8     e.preventDefault()
-  9     if (!city) {
- 10     ┆ return
- 11     }
- 12     const res = await fetch(
- 13     ┆ `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API    }`
- 14     )
- 15     const { main } = await res.json()
- 16     setResult(main)
- 17   }
- 18   return (
- 19   <div>
- 20     ┆ <form onSubmit={getWeather}>
- 21     ┆   <div>
- 22     ┆   ┆ <label>場所</label>
- 23     ┆   ┆ <input value={city} onChange={e => setCity(e.target.value)} />
- 24     ┆   </div>
- 25     ┆   <button type='submit'>検索</button>
- 26     ┆ </form>
- 27     ┆ {result && (
- 28     ┆   <>
- 29     ┆   ┆ <p>湿度: {result.humidity}</p>
- 30     ┆   ┆ <p>気圧: {result.pressure}</p>
- 31     ┆   ┆ <p>温度: {result.temp}</p>
- 32     ┆   ┆ <p>高: {result.temp_max}</p>
- 33     ┆   ┆ <p>低: {result.temp_min}</p>
- 34     ┆   </>
- 35     ┆ )}
- 36     </div>                                                                 
- 37   )
- 38 }
+import './App.css'
+import React, { useState } from 'react'
+const API = 'b966db4b4f61a822e4c6fbeffa936dc8'
+export default function App () {
+  const [city, setCity] = useState('')
+  const [result, setResult] = useState({})
+  const getWeather = async e => {
+    e.preventDefault()
+    if (!city) {
+    ┆ return
+    }
+    const res = await fetch(
+    ┆ `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API    }`
+    )
+    const { main } = await res.json()
+    setResult(main)
+  }
+  return (
+   <div>
+   ┆ <form onSubmit={getWeather}>
+   ┆   <div>
+   ┆   ┆ <label>場所</label>
+   ┆   ┆ <input value={city} onChange={e => setCity(e.target.value)} />
+   ┆   </div>
+   ┆   <button type='submit'>検索</button>
+   ┆ </form>
+   ┆ {result && (
+   ┆   <>
+   ┆   ┆ <p>湿度: {result.humidity}</p>
+   ┆   ┆ <p>気圧: {result.pressure}</p>
+   ┆   ┆ <p>温度: {result.temp}</p>
+   ┆   ┆ <p>高: {result.temp_max}</p>
+   ┆   ┆ <p>低: {result.temp_min}</p>
+   ┆   </>
+   ┆ )}
+   </div>                                                                 
+)
+}
 
