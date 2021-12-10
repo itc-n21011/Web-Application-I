@@ -1,6 +1,6 @@
 # Web-Application-I
 
-##Paizaラーニング
+Paizaラーニング
 ![paiza](./image/paiza.png)
 
 
